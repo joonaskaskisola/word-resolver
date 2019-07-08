@@ -1,0 +1,21 @@
+h1 {
+	display: flex;
+	justify-content: center;
+}
+
+input {
+	margin: 5px;
+	padding: 3px;
+	border: 1px dashed #fafafa;
+	opacity: 0.75;
+}
+
+.results {
+	font-weight: bold;
+	font-size: 0.75rem;
+}
+
+.result {
+	font-size: 1rem;
+	text-transform: uppercase;
+}

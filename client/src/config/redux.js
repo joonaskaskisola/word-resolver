@@ -1,6 +1,6 @@
-import promiseMiddleware from "redux-promise-middleware";
-import thunk from "react-thunk";
-import * as reducers from "../ducks";
+import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'react-thunk';
+import * as reducers from '../ducks';
 
 export function getMiddlewares() {
 	let middlewares = [thunk, promiseMiddleware()];

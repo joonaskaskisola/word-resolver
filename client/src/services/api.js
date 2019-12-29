@@ -10,17 +10,27 @@ async function getKotusWords() {
 		.catch(e => e);
 }
 
-async function getWords(letters, length = 0) {
+async function resolveWords(letters) {
+	let n = 0, promises = [];
+	letters.forEach(i => {
+		n++;
+		promises.push(this.getWords(letters, n));
+	});
+
+	return Promise.all(promises);
+}
+
+async function getWords(letters, letterCount) {
 	return axios
 		.post(API_URL, {
-			letters: letters.join(""),
-			length: length === 0 ? null : length
+			letters: letters.join(''),
+			length: letterCount
 		})
-		.then(res => res.data)
-		.catch(e => e);
+		.then(res => res.data);
 }
 
 export default {
 	getKotusWords,
+	resolveWords,
 	getWords
 };

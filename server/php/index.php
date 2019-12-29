@@ -19,6 +19,9 @@ $length = array_key_exists('length', $requestBody)
 	? $requestBody['length']
 	: null;
 
+/**
+ * Set the search parameters
+ */
 $search = [
 	'length' => $length ? intval($length) : mb_strlen($letters),
 	'letters' => array_reduce(preg_split('//u', $letters, null, PREG_SPLIT_NO_EMPTY), function (array $carry, string $letter): array {
@@ -35,6 +38,9 @@ $search = [
 	}, [])
 ];
 
+/**
+ * Read words from kotus
+ */
 $sanat = array_map(function (array $children): array {
 	return array_map(function (SimpleXMLElement $el): string {
 		$a = (array)$el;
@@ -42,6 +48,9 @@ $sanat = array_map(function (array $children): array {
 	}, (array)$children);
 }, (array)$data->children());
 
+/**
+ * Find words, with exact same match
+ */
 $matchingSizes = array_values(array_unique(array_reduce(array_shift($sanat), function (array $carry, string $sana) use ($search): array {
 	if (mb_strlen($sana) === $search['length']) {
 		$carry[] = $sana;
@@ -50,6 +59,9 @@ $matchingSizes = array_values(array_unique(array_reduce(array_shift($sanat), fun
 	return $carry;
 }, [])));
 
+/**
+ * Get exact matches
+ */
 $matches = array_reduce($matchingSizes, function (array $carry, string $sana) use ($search): array {
 	$i = 0;
 

@@ -29,12 +29,9 @@ export default function wordReducer(state = defaultState, action) {
 	switch (true) {
 		case type.endsWith('_REJECTED'):
 			return state.set('matches', List());
+		case type.endsWith('_FULFILLED'):
+			return state.set('matches', payload);
 		default:
-			switch (type) {
-				case WORDS_FULFILLED:
-					return state.set('matches', payload.matches);
-				default:
-					return state;
-			}
+			return state;
 	}
 }

@@ -1,28 +1,27 @@
 import axios from 'axios';
 
-const XML_PATH = '/kotus-sanalista_v1.xml';
-const API_URL = 'http://localhost:3001/resolve';
-
-async function getKotusWords() {
-	return axios
-		.get(XML_PATH)
-		.then(res => res.data)
-		.catch(e => e);
-}
-
+/**
+ * @param letters
+ * @returns {Promise}
+ */
 async function resolveWords(letters) {
 	let n = 0, promises = [];
 	letters.forEach(i => {
 		n++;
-		promises.push(this.getWords(letters, n));
+		promises.push(getWords(letters, n));
 	});
 
 	return Promise.all(promises);
 }
 
+/**
+ * @param letters
+ * @param letterCount
+ * @returns {Promise}
+ */
 async function getWords(letters, letterCount) {
 	return axios
-		.post(API_URL, {
+		.post('http://' + window.location.hostname + ':3001/resolve', {
 			letters: letters.join(''),
 			length: letterCount
 		})
@@ -30,7 +29,5 @@ async function getWords(letters, letterCount) {
 }
 
 export default {
-	getKotusWords,
-	resolveWords,
-	getWords
+	resolveWords
 };

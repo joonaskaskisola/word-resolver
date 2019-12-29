@@ -3,8 +3,7 @@ import thunk from 'react-thunk';
 import * as reducers from '../ducks';
 
 export function getMiddlewares() {
-	let middlewares = [thunk, promiseMiddleware()];
-	return middlewares;
+	return [thunk, promiseMiddleware()];
 }
 
 export function getReducers() {

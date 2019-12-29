@@ -21,6 +21,8 @@ reader.on('done', data => (state.xml = data));
 reader.parse(xml);
 
 const find = (wordLetters, length = 0) => {
+	wordLetters = wordLetters.toLowerCase();
+
 	let letters = wordLetters.split('').reduce((carry, letter) => {
 		let match = carry.find(i => i.letter === letter);
 

@@ -591,7 +591,7 @@ This will allow you to do imports like
 
 ```scss
 @import 'styles/_colors.scss'; // assuming a styles directory under src/
-@import 'nprogress/nprogress'; // importing a css file from the nprogress node module
+@import 'nprogress/nprogress'; // importing a css file from the nprogress nodejs module
 ```
 
 At this point you might want to remove all CSS files from the source control, and add `src/**/*.css` to your `.gitignore` file. It is generally a good practice to keep the build products outside of the source control.

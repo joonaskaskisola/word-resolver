@@ -2,11 +2,11 @@
 client/.vscode/
 client/build/
 
-server/node/.idea/
-server/node/node_modules/
-server/node/.vscode/
-server/node/yarn-error.log
-server/node/kotus-sanalista_v1.xml
+server/nodejs/.idea/
+server/nodejs/node_modules/
+server/nodejs/.vscode/
+server/nodejs/yarn-error.log
+server/nodejs/kotus-sanalista_v1.xml
 
 server/php/.idea/
 server/php/kotus-sanalista_v1.xml

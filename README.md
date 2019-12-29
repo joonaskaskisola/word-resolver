@@ -1,24 +1,28 @@
-# Starting
+# WordSnack solver in Finnish
 
-#### Client
+Frontend is written using ReactJS
+
+## 1. Start backend
+
+You can choose to use either PHP or NodeJS as backend.
+
+##### PHP Server
 ```bash
-cd client
-yarn install
-yarn start
+./start-php-backend.sh
 ```
 
-#### PHP Server
+##### NodeJS Server
 ```bash
-cd server/php
-cp ../../kotus-sanalista/kotus-sanalista_v1.xml ./kotus-sanalista_v1.xml
-php -S 0.0.0.0:3001 index.php
+./start-nodejs-backend.sh
 ```
 
-#### NodeJS Server
+## 2. Start frontend
+
 ```bash
-cd server/node
-cp ../../kotus-sanalista/kotus-sanalista_v1.xml ./kotus-sanalista_v1.xml
-yarn start
+./start-nodejs-frontend.sh
 ```
 
-Visit `http://localhost:3000/`
+
+## 3. Start solving
+
+### Application is now running @ `http://localhost:3000/`

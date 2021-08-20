@@ -9,7 +9,7 @@ class App extends React.Component {
 
 	onChange = e => {
 		let fieldName = e.target.name,
-			letters = this.state.letters;
+				letters = this.state.letters;
 
 		letters[fieldName] = e.target.value;
 		this.props.resolver(letters);
@@ -19,7 +19,7 @@ class App extends React.Component {
 			if (this.refs[parseInt(fieldName, 10) + 1]) {
 				this.refs[parseInt(fieldName, 10) + 1].focus();
 			}
-		}, 100);
+		}, 10);
 	};
 
 	shouldComponentUpdate = (a, b) => {
@@ -30,14 +30,21 @@ class App extends React.Component {
 		this.refs[0].focus();
 	};
 
+	onKeyDown = e => {
+		console.log(e);
+		if (e.keyCode === 8) {
+			window.location.reload();
+		}
+	}
+
 	render() {
 		return (
 			<div className='app'>
 				<header>
-					<h1>Word finder</h1>
+					<h1>SANAVÄLIPALA</h1>
 				</header>
 
-				<p>Syötä pelissä olevat kirjaimet:</p>
+				<p>Syötä pelissä näkyvät kirjaimet:</p>
 
 				<div className='letters'>
 					{[...Array(this.state.inputs)].map((e, i) => {
@@ -52,6 +59,7 @@ class App extends React.Component {
 								type='text'
 								value={this.state.letters[i] ? this.state.letters[i] : ''}
 								onChange={this.onChange}
+								onKeyDown={this.onKeyDown}
 							/>
 						);
 					})}

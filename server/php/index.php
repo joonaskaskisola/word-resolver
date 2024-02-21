@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Headers: Content-Type');
 
-$data = simplexml_load_string(file_get_contents('kotus-sanalista_v1.xml'));
+$data = simplexml_load_string(file_get_contents(__DIR__ . '/kotus-sanalista_v1.xml'));
 $requestBody = json_decode(file_get_contents("php://input"), true);
 
 if ($requestBody === null) {

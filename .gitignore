@@ -10,3 +10,5 @@ server/nodejs/kotus-sanalista_v1.xml
 
 server/php/.idea/
 server/php/kotus-sanalista_v1.xml
+
+/vendor/

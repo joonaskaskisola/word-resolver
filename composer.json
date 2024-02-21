@@ -1,0 +1,17 @@
+{
+    "name": "apustaja/word-resolver",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Apustaja\\WordResolver\\": "server/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Apu Laine",
+            "email": "apustaja@wenever.online"
+        }
+    ],
+    "require": {}
+}
